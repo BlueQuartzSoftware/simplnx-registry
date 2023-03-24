@@ -72,13 +72,21 @@ Save the file.
 
 ### Update the port version File ###
 
-Edit `complex-registry/versions/e-/ebsdlib.json` file to update the `version` json entry to match the same string that you just updated in the `complex-registry/ports/ebsdlib/vcpkg.json` file.
+Edit `complex-registry/versions/e-/ebsdlib.json` file to update the `version` json entry to match the same string that you just updated in the `complex-registry/ports/ebsdlib/vcpkg.json` file. For example here is the new section for v1.0.18 of EbsdLib.
+
+```
+    {
+      "version": "1.0.18",
+      "port-version": 0,
+      "git-tree": "b3f4de3cf6c71d4400809f9c5f415ef2b95ac340"
+    }
+```
 
 Save the file.
 
 ### Update the baseline.json file ###
 
-Update the file `complex-registry/baseline.json` file.
+Update the file `complex-registry/versions/baseline.json` file.
 
 * Update the `baseline` json key and set it's value to the version of the library that is needed. In the case of our example EbsdLib update we end up with a section like the following:
 
