@@ -28,7 +28,7 @@ The output should be something like:
 
 There are a number of files that you need to update plus some `git` shenanigans to get everything correct. You will also need to update a pair of files in `complex` and then push and put in a PR for those changes.
 
-### Update the Portfile ###
+### Update the complex-registry/ports/XXXX/Portfile.cmake ###
 
 Edit the file `complex-registry/ports/ebsdlib/portfile.cmake` to update the section `vcpkg_from_github()` to update the `REF` and `SHA512` arguments.
 
@@ -37,7 +37,7 @@ Edit the file `complex-registry/ports/ebsdlib/portfile.cmake` to update the sect
 
 Save the file.
 
-### Udpate the VCPKG.json File ###
+### Udpate the complex-registry/ports/XXXX/vcpkg.json File ###
 
 Edit the file `complex-registry/ports/ebsdlib/vcpkg.json` file. You need to update the `version` string to match the version of the library. Note to **leave out the 'v'** from the version. The json is below for our v1.0.13 library.
 
@@ -72,13 +72,13 @@ Save the file.
 
 ### Update the port version File ###
 
-Edit `complex-registry/versions/e-/ebsdlib.json` file to update the `version` json entry to match the same string that you just updated in the `complex-registry/ports/ebsdlib/vcpkg.json` file. For example here is the new section for v1.0.18 of EbsdLib.
+Edit `complex-registry/versions/e-/ebsdlib.json` file to update the `version` json entry to match the same string that you just updated in the `complex-registry/ports/ebsdlib/vcpkg.json` file. For example here is the new section for v1.0.19 of EbsdLib.
 
 ```
     {
-      "version": "1.0.18",
+      "version": "1.0.19",
       "port-version": 0,
-      "git-tree": "b3f4de3cf6c71d4400809f9c5f415ef2b95ac340"
+      "git-tree": "b177e78038a8b14048fe898732d68c0318db7ef1"
     }
 ```
 
@@ -91,7 +91,7 @@ Update the file `complex-registry/versions/baseline.json` file.
 * Update the `baseline` json key and set it's value to the version of the library that is needed. In the case of our example EbsdLib update we end up with a section like the following:
 
     "ebsdlib": {
-      "baseline": "1.0.13",
+      "baseline": "1.0.19",
       "port-version": 0
     },
 
