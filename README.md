@@ -72,13 +72,13 @@ Save the file.
 
 ### Update the port version File ###
 
-Edit `complex-registry/versions/e-/ebsdlib.json` file to update the `version` json entry to match the same string that you just updated in the `complex-registry/ports/ebsdlib/vcpkg.json` file. For example here is the new section for v1.0.19 of EbsdLib.
+Edit `complex-registry/versions/e-/ebsdlib.json` file to update the `version` json entry to match the same string that you just updated in the `complex-registry/ports/ebsdlib/vcpkg.json` file. For example here is the new section for v1.0.20 of EbsdLib.
 
 ```
     {
-      "version": "1.0.19",
+      "version": "1.0.20",
       "port-version": 0,
-      "git-tree": "b177e78038a8b14048fe898732d68c0318db7ef1"
+      "git-tree": "6c0e5ec992472eeae5df9d627de524b59b971fab"
     }
 ```
 
