@@ -44,7 +44,9 @@ Edit the file `complex-registry/ports/ebsdlib/vcpkg.json` file. You need to upda
     "version": "1.0.13",
     "port-version": 0,
 
-If the actual version of the library is being updated, for example from 1.0.8 to 1.0.13, then the "port-version" should be reset to 0. If you are updating just the "portfile.cmake" but the actual version of the library stays the same then you need to increment the "port-version" by 1. For example we can have this:
+If the actual version of the library is being updated, for example from 1.0.8 to 1.0.13, then the "port-version" should be reset to 0 and this all you have to do.
+
+If you are updating just the "portfile.cmake" but the actual version of the library stays the same then you need to increment the "port-version" by 1 and then edit the *complex-registry/versions/e-/ebsdlib.json* file to have something like the following:
 
         {
         "versions": [
@@ -68,7 +70,7 @@ If the actual version of the library is being updated, for example from 1.0.8 to
 
 Which says there are 2 different vcpkg versions of the EbsdLib 1.0.8 library and there is a single vcpkg version of EbsdLib 1.0.14
 
-Save the file.
+Save the file vcpkg.json file, (and possibly the ebsdlib.json file)
 
 ### Update the port version File ###
 
