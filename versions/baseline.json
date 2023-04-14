@@ -13,7 +13,7 @@
       "port-version": 0
     },
     "ebsdlib": {
-      "baseline": "1.0.21",
+      "baseline": "1.0.22",
       "port-version": 0
     },
     "eigen3": {

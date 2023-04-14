@@ -80,7 +80,7 @@ Edit `complex-registry/versions/e-/ebsdlib.json` file to update the `version` js
     {
       "version": "1.0.20",
       "port-version": 0,
-      "git-tree": "6c0e5ec992472eeae5df9d627de524b59b971fab"
+      "git-tree": "REPLACE ME"
     }
 ```
 
