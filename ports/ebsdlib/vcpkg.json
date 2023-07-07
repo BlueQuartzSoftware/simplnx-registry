@@ -1,18 +1,30 @@
 {
   "name": "ebsdlib",
   "version": "1.0.22",
-  "port-version": 0,
+  "port-version": 1,
   "description": "Library to Read/Write and analyze EBSD (Electron Backscatter Diffraction) data",
   "homepage": "https://github.com/bluequartzsoftware/EbsdLib",
   "dependencies": [
     {
       "name": "eigen3"
-    },
-    {
-      "name": "h5support"
-    },
-    {
-      "name": "tbb"
     }
-  ]
+  ],
+  "default-features": [
+    "hdf5",
+    "parallel"
+  ],
+  "features": {
+    "hdf5": {
+      "description": "HDF5 support for EbsdLib",
+      "dependencies": [
+        "h5support"
+      ]
+    },
+    "parallel": {
+      "description": "Parallel support for EbsdLib",
+      "dependencies": [
+        "tbb"
+      ]
+    }
+  }
 }
