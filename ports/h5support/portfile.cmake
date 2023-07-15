@@ -1,14 +1,13 @@
 vcpkg_from_github(
   OUT_SOURCE_PATH SOURCE_PATH
   REPO bluequartzsoftware/h5support
-  REF v1.0.7
-  SHA512 fb430fb99bd85b65c900c4d1b9e3fa588419d94eb35812ce42b2fc5602eacab34f6689cece2f5745d125f78dc6d126f365181cce2a1fa242eafab09ab4cf876e
+  REF v1.0.11
+  SHA512 3c9d854c7a2ec14f61ab9ee16bc67af3a6c859f4d9f51674caef19841271901e8909ef94c67623912e00e0d2cab719bbe96a3401c3269acb0ff2d4cbced86d76
   HEAD_REF develop
 )
 
 vcpkg_configure_cmake(
   SOURCE_PATH "${SOURCE_PATH}"
-  PREFER_NINJA
   OPTIONS
     -DH5Support_INCLUDE_QT_API=OFF
     -DH5Support_INSTALL_HDF5=OFF
