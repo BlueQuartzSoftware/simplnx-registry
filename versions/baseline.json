@@ -29,7 +29,7 @@
       "port-version": 0
     },
     "h5support": {
-      "baseline": "1.0.11",
+      "baseline": "1.0.12",
       "port-version": 0
     },
     "hdf5": {

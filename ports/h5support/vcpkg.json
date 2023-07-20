@@ -1,6 +1,6 @@
 {
   "name": "h5support",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "port-version": 0,
   "description": "Header only library to read/write HDF5 files.",
   "homepage": "https://github.com/bluequartzsoftware/H5Support",
