@@ -1,7 +1,7 @@
 {
   "name": "ebsdlib",
-  "version": "1.0.22",
-  "port-version": 1,
+  "version": "1.0.25",
+  "port-version": 0,
   "description": "Library to Read/Write and analyze EBSD (Electron Backscatter Diffraction) data",
   "homepage": "https://github.com/bluequartzsoftware/EbsdLib",
   "dependencies": [
