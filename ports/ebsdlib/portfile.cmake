@@ -1,8 +1,8 @@
 vcpkg_from_github(
   OUT_SOURCE_PATH SOURCE_PATH
   REPO bluequartzsoftware/ebsdlib
-  REF v1.0.25
-  SHA512 d3a25e0202cbebb0f577d195fd6994e01e9bea01ea3d2e29cd784bc8e2a85e8a0ec29580376fa87dfcc0602cc25cba23b3170b97b6aa137a3a655c034cdf2c7e
+  REF v1.0.26
+  SHA512 9bcd7d7e92ebbc750144f1c63baa5dc00c7b2a90519ebb24afa53ba582eab719437d7b1b82886f4cebab9665cc456bcf6f397a11c5ffe23252be746ed62df61a
   HEAD_REF develop
 )
 
