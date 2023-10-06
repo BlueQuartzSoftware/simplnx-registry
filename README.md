@@ -39,7 +39,7 @@ Save the file.
 
 ### Udpate the complex-registry/ports/XXXX/vcpkg.json File ###
 
-Edit the file `complex-registry/ports/ebsdlib/vcpkg.json` file. You need to update the `version` string to match the version of the library. Note to **leave out the 'v'** from the version. The json is below for our v1.0.13 library.
+Edit the file `complex-registry/ports/XXXXX/vcpkg.json` file. You need to update the `version` string to match the version of the library. Note to **leave out the 'v'** from the version. The json is below for our v1.0.13 library.
 
     "version": "1.0.13",
     "port-version": 0,
