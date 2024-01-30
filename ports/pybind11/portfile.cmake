@@ -1,8 +1,8 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO pybind/pybind11
-    REF v2.10.0
-    SHA512 93112ce530a0652b2b4458a137b4a35f2fd8607f82ad96698ef422128d0b53e16e1d06c239ee4643b821acafae09c74eb0f72bc4ee5584aa9fcdaff4d79980d9
+    REF v2.11.1
+    SHA512 ed1512ff0bca3bc0a45edc2eb8c77f8286ab9389f6ff1d5cb309be24bc608abbe0df6a7f5cb18c8f80a3bfa509058547c13551c3cd6a759af708fd0cdcdd9e95
     HEAD_REF master
 )
 
