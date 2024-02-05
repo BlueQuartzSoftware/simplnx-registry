@@ -7,24 +7,24 @@ This is the vcpkg registry for [complex](https://github.com/BlueQuartzSoftware/c
 ## So you wanna update the version of a Library ##
 
 ### Do the GitHub Release and Compute the SHA512 Hash ###
+
 First create a release for the given tag up on GitHub. Let's use EbsdLib as an example. Go to [https://www.github.com/bluequartzsoftware/EbsdLib](https://www.github.com/bluequartzsoftware/EbsdLib) and create a release with the given tag. 
 
-+ Put in the release notes into the comments section. 
++ Put in the release notes into the comments section.
 + Use the `vX.Y.Z` versioning scheme.
 + Publish the release.
 + Download the .tar.gz source archive that was created.
 + Compute the SHA512 hash for the source file.
-  + `shasum -a512 EbsdLib-1.0.12.tar.gz`
+  + `shasum -a512 EbsdLib-1.0.27.tar.gz`
 
 The output should be something like:
 
-    e477a8cca267d51c486e9cf21915ca7efbe0c9c0c1693b857399c4c4383d4721cb3c87ed6d82a3eccf97585aac199aa51dc8df0e74bdd5a8774a40740ea2b485  EbsdLib-1.0.13.tar.gz
-
+    9f211f8865c13b3bb9f8bc390bbc554c29d850ff9b924c6d801609320b88169931047567794f164fae0ea7948ce50cef7c2b9cbadf796a07b44f61c9fd90a96d  EbsdLib-1.0.27.tar.gz
 
 ### Update complex-registry ###
 
-* git clone ssh://git@github.com/bluequartzsoftware/complex-registry
-* OR git pull --rebase origin master
++ git clone ssh://git@github.com/bluequartzsoftware/complex-registry
++ OR git pull --rebase origin master
 
 There are a number of files that you need to update plus some `git` shenanigans to get everything correct. You will also need to update a pair of files in `complex` and then push and put in a PR for those changes.
 
@@ -37,14 +37,14 @@ Edit the file `complex-registry/ports/ebsdlib/portfile.cmake` to update the sect
 
 Save the file.
 
-### Udpate the complex-registry/ports/XXXX/vcpkg.json File ###
+### Update the complex-registry/ports/XXXX/vcpkg.json File ###
 
 Edit the file `complex-registry/ports/XXXXX/vcpkg.json` file. You need to update the `version` string to match the version of the library. Note to **leave out the 'v'** from the version. The json is below for our v1.0.13 library.
 
     "version": "1.0.13",
     "port-version": 0,
 
-If the actual version of the library is being updated, for example from 1.0.8 to 1.0.13, then the "port-version" should be reset to 0 and this all you have to do.
+If the actual version of the library is being updated, for example from 1.0.26 to 1.0.27, then the "port-version" should be reset to 0 and this all you have to do.
 
 If you are updating just the "portfile.cmake" but the actual version of the library stays the same then you need to increment the "port-version" by 1 and then edit the *complex-registry/versions/e-/ebsdlib.json* file to have something like the following:
 
@@ -74,11 +74,11 @@ Save the file vcpkg.json file, (and possibly the ebsdlib.json file)
 
 ### Update the port version File ###
 
-Edit `complex-registry/versions/e-/ebsdlib.json` file to update the `version` json entry to match the same string that you just updated in the `complex-registry/ports/ebsdlib/vcpkg.json` file. For example here is the new section for v1.0.20 of EbsdLib.
+Edit `complex-registry/versions/e-/ebsdlib.json` file to update the `version` json entry to match the same string that you just updated in the `complex-registry/ports/ebsdlib/vcpkg.json` file. For example here is the new section for v1.0.27 of EbsdLib.
 
 ```
     {
-      "version": "1.0.20",
+      "version": "1.0.27",
       "port-version": 0,
       "git-tree": "REPLACE ME"
     }
@@ -90,10 +90,10 @@ Save the file.
 
 Update the file `complex-registry/versions/baseline.json` file.
 
-* Update the `baseline` json key and set it's value to the version of the library that is needed. In the case of our example EbsdLib update we end up with a section like the following:
++ Update the `baseline` json key and set it's value to the version of the library that is needed. In the case of our example EbsdLib update we end up with a section like the following:
 
     "ebsdlib": {
-      "baseline": "1.0.19",
+      "baseline": "1.0.27",
       "port-version": 0
     },
 
