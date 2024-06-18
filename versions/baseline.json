@@ -1,5 +1,9 @@
 {
   "default": {
+    "benchmark": {
+      "baseline": "1.8.4",
+      "port-version": 0
+    },
     "blosc": {
       "baseline": "1.18.1",
       "port-version": 1
