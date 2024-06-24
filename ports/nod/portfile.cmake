@@ -1,23 +1,22 @@
 vcpkg_from_github(
   OUT_SOURCE_PATH SOURCE_PATH
   REPO fr00b0/nod
-  REF v0.5.2
-  SHA512 76195a3b0da30da9ea942d141b10228d4681f9a03085eeb5c26333ed7af5ece5689f6b6fbcbaf08c4084f426874a52a32a4562002c65c8da4bf15032dbafdad1
+  REF "v${VERSION}"
+  SHA512 e44c2f6e7e6f435be48936c3faa9dbc7cdbd115a2e08fb415060e7bb098c6cff35afd10c3e940a36214493117941dc822c09c6fd8055ff3c00f5b2265d1e6cbf
   HEAD_REF master
 )
 
-file(COPY "${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt" DESTINATION "${SOURCE_PATH}")
+configure_file("${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt.in" "${SOURCE_PATH}/CMakeLists.txt" @ONLY)
 
-vcpkg_configure_cmake(
-  SOURCE_PATH ${SOURCE_PATH}
-  PREFER_NINJA
+vcpkg_cmake_configure(
+  SOURCE_PATH "${SOURCE_PATH}"
 )
 
-vcpkg_install_cmake()
+vcpkg_cmake_install()
 
 file(REMOVE_RECURSE
-  ${CURRENT_PACKAGES_DIR}/debug
-  ${CURRENT_PACKAGES_DIR}/lib
+  "${CURRENT_PACKAGES_DIR}/debug"
+  "${CURRENT_PACKAGES_DIR}/lib"
 )
 
-file(INSTALL ${SOURCE_PATH}/LICENSE DESTINATION ${CURRENT_PACKAGES_DIR}/share/${PORT} RENAME copyright)
+vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE")

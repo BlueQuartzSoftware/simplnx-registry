@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 
 project(nod
   LANGUAGES CXX
-  VERSION 0.5.2
+  VERSION @VERSION@
 )
 
 include(GNUInstallDirs)
