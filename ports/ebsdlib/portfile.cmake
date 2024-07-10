@@ -1,12 +1,12 @@
 vcpkg_from_github(
   OUT_SOURCE_PATH SOURCE_PATH
   REPO bluequartzsoftware/ebsdlib
-  REF v1.0.29
-  SHA512 6cd927d1bbe16bd15f60bf3164b56b5a7c3b76e16e6d8fe10f78c8d53cf2aa8bf22c4f2c4aa9cf7afcfaee2a1d560f9cf272891b5581426580320bd1078c7ecd
+  REF "v${VERSION}"
+  SHA512 82c7fe8d011ee3d70936098442a3245973e463c281c673d309f52139053502bd8e9692f54da6684bf2bb498e4189556352975aa473a3f0328dc370645d5720e7
   HEAD_REF develop
 )
 
-set(EBSDLIB_COMMIT_HASH "8890c1b4793ddf5731c074c7ff8e6ef880d4a415")
+set(EBSDLIB_COMMIT_HASH "d7db8a3a5f11b97ca56b9864de710f552d9dccf4")
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
   FEATURES
@@ -14,9 +14,8 @@ vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
     parallel  EbsdLib_USE_PARALLEL_ALGORITHMS
 )
 
-vcpkg_configure_cmake(
+vcpkg_cmake_configure(
   SOURCE_PATH "${SOURCE_PATH}"
-  PREFER_NINJA
   OPTIONS
     -DDREAM3D_ANACONDA=ON
     -DCMP_TBB_ENABLE_COPY_INSTALL=OFF
@@ -31,9 +30,9 @@ vcpkg_configure_cmake(
     CMP_TBB_ENABLE_COPY_INSTALL
 )
 
-vcpkg_install_cmake()
+vcpkg_cmake_install()
 
-vcpkg_fixup_cmake_targets()
+vcpkg_cmake_config_fixup()
 
 vcpkg_copy_pdbs()
 

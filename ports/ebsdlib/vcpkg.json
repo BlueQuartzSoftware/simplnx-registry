@@ -1,12 +1,20 @@
 {
   "name": "ebsdlib",
-  "version": "1.0.29",
+  "version": "1.0.30",
   "port-version": 0,
   "description": "Library to Read/Write and analyze EBSD (Electron Backscatter Diffraction) data",
   "homepage": "https://github.com/bluequartzsoftware/EbsdLib",
   "dependencies": [
     {
       "name": "eigen3"
+    },
+    {
+      "name": "vcpkg-cmake",
+      "host": true
+    },
+    {
+      "name": "vcpkg-cmake-config",
+      "host": true
     }
   ],
   "default-features": [
