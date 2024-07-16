@@ -3,14 +3,14 @@ vcpkg_buildpath_length_warning(37)
 vcpkg_from_github(
   OUT_SOURCE_PATH SOURCE_PATH
   REPO InsightSoftwareConsortium/ITK
-  REF v5.2.1
-  SHA512 cccb64766acaebe49ee2dd8b82b7b5aaa6a35e97f2cc7738ad7f3cd65006b73b880ac59341cd640abd64c2ac665633f01504760071f5492e40aa97e7ba6db2a9
+  REF "v${VERSION}"
+  SHA512 3a98ececf258aac545f094dd3e97918c93cc82bc623ddf793c4bf0162ab06c83fbfd4d08130bdec6e617bda85dd17225488bc1394bc91b17f1232126a5d990db
   HEAD_REF master
 )
 
 vcpkg_find_acquire_program(GIT)
 
-vcpkg_configure_cmake(
+vcpkg_cmake_configure(
   SOURCE_PATH "${SOURCE_PATH}"
   DISABLE_PARALLEL_CONFIGURE
   OPTIONS
@@ -60,11 +60,11 @@ vcpkg_configure_cmake(
     -DCMAKE_DEBUG_POSTFIX:STRING=_d
 )
 
-vcpkg_install_cmake()
+vcpkg_cmake_install()
 
 vcpkg_copy_pdbs()
 
-vcpkg_fixup_cmake_targets()
+vcpkg_cmake_config_fixup()
 
 # vcpkg_replace_string("${CURRENT_PACKAGES_DIR}/share/${PORT}/Modules/TotalVariation.cmake" "set(Eigen3_DIR \"\${_IMPORT_PREFIX}/share/eigen3\")" "set(Eigen3_DIR \"\${ITK_INSTALL_PREFIX}/share/eigen3\")")
 # vcpkg_replace_string("${CURRENT_PACKAGES_DIR}/share/${PORT}/Modules/TotalVariation.cmake" "set(proxTV_DIR \"${CURRENT_PACKAGES_DIR}/share/itk/Modules\")" "set(proxTV_DIR \"\${ITK_INSTALL_PREFIX}/share/itk/Modules\")")
@@ -75,4 +75,4 @@ vcpkg_fixup_cmake_targets()
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/share")
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
 
-file(INSTALL "${SOURCE_PATH}/LICENSE" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}" RENAME copyright)
+vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE")
