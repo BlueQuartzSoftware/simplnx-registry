@@ -30,9 +30,8 @@ There are a number of files that you need to update plus some `git` shenanigans 
 
 ### Update the simplnx-registry/ports/XXXX/Portfile.cmake ###
 
-Edit the file `simplnx-registry/ports/ebsdlib/portfile.cmake` to update the section `vcpkg_from_github()` to update the `REF` and `SHA512` arguments.
+Edit the file `simplnx-registry/ports/ebsdlib/portfile.cmake` to update the section `vcpkg_from_github()` to update the `SHA512` arguments.
 
-    REF v1.0.13
     SHA512 e477a8cca267d51c486e9cf21915ca7efbe0c9c0c1693b857399c4c4383d4721cb3c87ed6d82a3eccf97585aac199aa51dc8df0e74bdd5a8774a40740ea2b485
 
 Save the file.
