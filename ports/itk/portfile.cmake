@@ -6,6 +6,8 @@ vcpkg_from_github(
   REF "v${VERSION}"
   SHA512 3a98ececf258aac545f094dd3e97918c93cc82bc623ddf793c4bf0162ab06c83fbfd4d08130bdec6e617bda85dd17225488bc1394bc91b17f1232126a5d990db
   HEAD_REF master
+  PATCHES
+    libtiff_msvc_inline.patch
 )
 
 vcpkg_find_acquire_program(GIT)
