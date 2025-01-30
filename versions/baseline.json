@@ -89,7 +89,7 @@
       "port-version": 0
     },
     "reproc": {
-      "baseline": "14.2.4",
+      "baseline": "14.2.5",
       "port-version": 0
     },
     "vcpkg-cmake": {
