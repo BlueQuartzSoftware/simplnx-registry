@@ -1,12 +1,11 @@
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO fmtlib/fmt
-    REF 10.1.1
-    SHA512 288c349baac5f96f527d5b1bed0fa5f031aa509b4526560c684281388e91909a280c3262a2474d963b5d1bf7064b1c9930c6677fe54a0d8f86982d063296a54c
+    REF "${VERSION}"
+    SHA512 573b7de1bd224b7b1b60d44808a843db35d4bc4634f72a9edcb52cf68e99ca66c744fd5d5c97b4336ba70b94abdabac5fc253b245d0d5cd8bbe2a096bf941e39
     HEAD_REF master
     PATCHES
         fix-write-batch.patch
-        fix-format-conflict.patch
 )
 
 vcpkg_cmake_configure(
@@ -22,7 +21,7 @@ vcpkg_cmake_config_fixup()
 vcpkg_copy_pdbs()
 
 if(VCPKG_LIBRARY_LINKAGE STREQUAL dynamic)
-    vcpkg_replace_string(${CURRENT_PACKAGES_DIR}/include/fmt/core.h
+    vcpkg_replace_string("${CURRENT_PACKAGES_DIR}/include/fmt/base.h"
         "defined(FMT_SHARED)"
         "1"
     )
@@ -36,4 +35,4 @@ file(REMOVE_RECURSE
 )
 
 file(INSTALL "${CMAKE_CURRENT_LIST_DIR}/usage" DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}")
-vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE.rst")
+vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE")

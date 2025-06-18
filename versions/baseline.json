@@ -29,7 +29,7 @@
       "port-version": 0
     },
     "fmt": {
-      "baseline": "10.1.1",
+      "baseline": "11.1.4",
       "port-version": 0
     },
     "h5support": {
