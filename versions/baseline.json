@@ -41,8 +41,8 @@
       "port-version": 0
     },
     "itk": {
-      "baseline": "5.4.0",
-      "port-version": 1
+      "baseline": "5.4.4",
+      "port-version": 0
     },
     "lz4": {
       "baseline": "1.9.4",

@@ -4,10 +4,8 @@ vcpkg_from_github(
   OUT_SOURCE_PATH SOURCE_PATH
   REPO InsightSoftwareConsortium/ITK
   REF "v${VERSION}"
-  SHA512 3a98ececf258aac545f094dd3e97918c93cc82bc623ddf793c4bf0162ab06c83fbfd4d08130bdec6e617bda85dd17225488bc1394bc91b17f1232126a5d990db
+  SHA512 225de9963e8eaf93ac32ca4a75c4e7aa887c8e926483c5aca0a4c77ef0e6cc6db4561f96a9ec3b936524ea698702705e8dc2c4a2e6a155733a12c0b3098ae11c
   HEAD_REF master
-  PATCHES
-    libtiff_msvc_inline.patch
 )
 
 vcpkg_find_acquire_program(GIT)
@@ -76,5 +74,18 @@ vcpkg_cmake_config_fixup()
 
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/share")
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
+
+file(REMOVE "${CURRENT_PACKAGES_DIR}/lib/zlib.pc")
+file(REMOVE "${CURRENT_PACKAGES_DIR}/debug/lib/zlib.pc")
+
+string(REGEX MATCH "([0-9]+\\.[0-9]+)\\.[0-9]+" MATCH_OUTPUT "${VERSION}")
+set(ITK_INCLUDE_DIR "${CURRENT_PACKAGES_DIR}/include/ITK-${CMAKE_MATCH_1}")
+
+file(REMOVE "${ITK_INCLUDE_DIR}/vcl_where_root_dir.h")
+
+vcpkg_replace_string("${ITK_INCLUDE_DIR}/gdcmConfigure.h" "#define GDCM_SOURCE_DIR \"${CURRENT_BUILDTREES_DIR}[^\r\n]*\"" "" REGEX)
+vcpkg_replace_string("${ITK_INCLUDE_DIR}/gdcmConfigure.h" "#define GDCM_EXECUTABLE_OUTPUT_PATH.*\"${CURRENT_BUILDTREES_DIR}[^\r\n]*\"" "" REGEX)
+vcpkg_replace_string("${ITK_INCLUDE_DIR}/gdcmConfigure.h" "#define GDCM_LIBRARY_OUTPUT_PATH.*\"${CURRENT_BUILDTREES_DIR}[^\r\n]*\"" "" REGEX)
+vcpkg_replace_string("${ITK_INCLUDE_DIR}/gdcmConfigure.h" "#define GDCM_CMAKE_INSTALL_PREFIX \"${CURRENT_PACKAGES_DIR}[^\r\n]*\"" "" REGEX)
 
 vcpkg_install_copyright(FILE_LIST "${SOURCE_PATH}/LICENSE")
