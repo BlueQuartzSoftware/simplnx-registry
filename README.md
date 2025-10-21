@@ -15,11 +15,11 @@ First create a release for the given tag up on GitHub. Let's use EbsdLib as an e
 + Publish the release.
 + Download the .tar.gz source archive that was created.
 + Compute the SHA512 hash for the source file.
-  + `shasum -a512 EbsdLib-1.0.33.tar.gz`
+  + `shasum -a512 EbsdLib-1.0.40.tar.gz`
 
 The output should be something like:
 
-    656cf17ed93bd4d03631809891a3c1b53f73924956d5f36b9b0d5678cd27968c8e9487da70e45ec4641a7789cfcd55e11d873fe6f0c65d0df720b6d5e532f52a  EbsdLib-1.0.33.tar.gz
+    d31090079a27a1c679e77a4a2dfbdf9a7d45e9dec19b0ef1b2af94db5ac449cc3c71884fc07f2af817517154010b6e6390d1d6deb31d678a31fc267d904eeab8  EbsdLib-1.0.40.tar.gz
 
 ### Update simplnx-registry ###
 
@@ -32,15 +32,15 @@ There are a number of files that you need to update plus some `git` shenanigans 
 
 Edit the file `simplnx-registry/ports/ebsdlib/portfile.cmake` to update the section `vcpkg_from_github()` to update the `SHA512` arguments.
 
-    SHA512 e477a8cca267d51c486e9cf21915ca7efbe0c9c0c1693b857399c4c4383d4721cb3c87ed6d82a3eccf97585aac199aa51dc8df0e74bdd5a8774a40740ea2b485
+    SHA512 d31090079a27a1c679e77a4a2dfbdf9a7d45e9dec19b0ef1b2af94db5ac449cc3c71884fc07f2af817517154010b6e6390d1d6deb31d678a31fc267d904eeab8
 
 Save the file.
 
 ### Update the simplnx-registry/ports/XXXX/vcpkg.json File ###
 
-Edit the file `simplnx-registry/ports/XXXXX/vcpkg.json` file. You need to update the `version` string to match the version of the library. Note to **leave out the 'v'** from the version. The json is below for our v1.0.13 library.
+Edit the file `simplnx-registry/ports/XXXXX/vcpkg.json` file. You need to update the `version` string to match the version of the library. Note to **leave out the 'v'** from the version. The json is below for our v1.0.40 library.
 
-    "version": "1.0.13",
+    "version": "1.0.40",
     "port-version": 0,
 
 If the actual version of the library is being updated, for example from 1.0.26 to 1.0.33, then the "port-version" should be reset to 0 and this all you have to do.
@@ -79,7 +79,7 @@ Edit `simplnx-registry/versions/e-/ebsdlib.json` file to update the `version` js
     {
       "version": "1.0.33",
       "port-version": 0,
-      "git-tree": "REPLACE ME"
+      "git-tree": "REPLACE_ME"
     }
 ```
 
@@ -92,7 +92,7 @@ Update the file `simplnx-registry/versions/baseline.json` file.
 + Update the `baseline` json key and set it's value to the version of the library that is needed. In the case of our example EbsdLib update we end up with a section like the following:
 
     "ebsdlib": {
-      "baseline": "1.0.33",
+      "baseline": "1.0.40",
       "port-version": 0
     },
 
@@ -103,7 +103,7 @@ Save the file.
 Now we are going to commit what we have so far.
 
     [user]$ git add .
-    [user]$ git commit -s -a -m "[ebsdlib] Update to version 1.0.33"
+    [user]$ git commit -s -a -m "[ebsdlib] Update to version 1.0.40"
 
 Now you need to find the exact git object so that you can update the `simplnx-registry/versions/e-/ebsdlib.json` file AGAIN. (Yes, we are editing it a second time.)
 
