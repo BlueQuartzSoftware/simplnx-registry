@@ -111,6 +111,10 @@
     "zstd": {
       "baseline": "1.5.2",
       "port-version": 1
+    },
+    "tiff": {
+      "baseline": "4.7.1",
+      "port-version": 0
     }
   }
 }
