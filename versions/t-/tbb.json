@@ -9,6 +9,11 @@
       "version-string": "2021.4.0",
       "port-version": 1,
       "git-tree": "8680f24d5c930b368f56e3220897c9ea200824bd"
+    },
+    {
+      "version-string": "2022.3.0",
+      "port-version": 0,
+      "git-tree": "9042d8c0d41bb5e6360e78226dd8a04001a71c41"
     }
   ]
 }
