@@ -14,12 +14,32 @@ vcpkg_check_features(
     INVERTED_FEATURES
         hwloc TBB_DISABLE_HWLOC_AUTOMATIC_SEARCH)
 
+if(VCPKG_TARGET_IS_WINDOWS)
+    set(HWLOC_VER 2_5)
+    set(options
+        -DCMAKE_HWLOC_${HWLOC_VER}_INCLUDE_PATH=${CURRENT_INSTALLED_DIR}/include
+    )
+    set(options_debug
+        -DCMAKE_HWLOC_${HWLOC_VER}_LIBRARY_PATH=${CURRENT_INSTALLED_DIR}/debug/lib/hwloc.lib
+        -DCMAKE_HWLOC_${HWLOC_VER}_DLL_PATH=${CURRENT_INSTALLED_DIR}/debug/bin/hwloc.dll
+    )
+    set(options_release
+        -DCMAKE_HWLOC_${HWLOC_VER}_LIBRARY_PATH=${CURRENT_INSTALLED_DIR}/lib/hwloc.lib
+        -DCMAKE_HWLOC_${HWLOC_VER}_DLL_PATH=${CURRENT_INSTALLED_DIR}/bin/hwloc.dll
+    )
+endif()
+
 vcpkg_cmake_configure(
     SOURCE_PATH "${SOURCE_PATH}"
     OPTIONS
         ${FEATURE_OPTIONS}
         -DTBB_TEST=OFF
         -DTBB_STRICT=OFF
+        ${options}
+    OPTIONS_DEBUG
+        ${options_debug}
+    OPTIONS_RELEASE
+        ${options_release}
 )
 
 vcpkg_cmake_install()
