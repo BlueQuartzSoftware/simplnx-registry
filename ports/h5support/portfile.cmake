@@ -1,8 +1,8 @@
 vcpkg_from_github(
   OUT_SOURCE_PATH SOURCE_PATH
   REPO bluequartzsoftware/h5support
-  REF v1.0.13
-  SHA512 1f670e2cf75bcab99c984d3c738b5e66bad17df7a7554d6b994b42faaf99cf0f90a81158f9d4a00a2bd7d3cac82cf39e9348c990fb2ca185d5d173abbe22fc41
+  REF v1.0.14
+  SHA512 9bd2ff7d45bb5c2bafa8db6686f7ae25eacce870eecac0a5822b55f038905dfd2af8ea7c70c653d940fe33db95801635f6d22fe80ff437c710b35d14adbafee1
   HEAD_REF develop
 )
 
